@@ -50,7 +50,7 @@ const Login = () => {
         <div className="container-login">
             <div className="container-acesso">
                 <h2>
-                    Sistema<br /> Pax Primavera
+                    Sistema<br /> Pax Primavera TESTE
                 </h2>
                 <div className="cpf-senha">
                     <label>CPF</label>
