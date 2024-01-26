@@ -1,0 +1,229 @@
+.home-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.container-dashboard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    overflow-y: hidden;
+    gap: 10px;
+    align-items: flex-start;
+    overflow-x: hidden;
+    /* Adicione esta linha para alinhar as divs independentemente */
+}
+
+.container-menus {
+    width: 11%;
+    height: 100vh;
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.menus-lateral {
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.container-dashboard2 {
+    width: 93%;
+    height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perfil {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+}
+
+.perfil a {
+    cursor: pointer;
+    color: var(--branco);
+    width: 3%;
+    background-color: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.container-dashboard.menu-collapsed .menus-lateral {
+    display: none;
+}
+
+
+.menus-lateral button {
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    background-color: var(--verde-leve);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 30px;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mixed-chart {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.container-menus img {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bem-vindo {
+    margin-top: 15px;
+    width: 95%;
+    background-color: var(--cinza-leve);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+
+.bem-vindo img {
+    width: 7%;
+}
+
+.bem-vindo2 h1 {
+    color: var(--verde);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.bem-vindo2 label {
+    color: var(--verde);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.navegacao-home button {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+
+.dinheiro-recebimento {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--verde);
+}
+
+.dinheiro-recebimento img {
+    width: 25%;
+}
+
+.navegacao-home {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.container-dashboard {
+    display: flex;
+    transition: margin-left 0.3s;
+    /* Adiciona uma transição suave ao margin-left */
+}
+
+.menus-lateral {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    transition: width 0.3s;
+    /* Adiciona uma transição suave à largura do menu */
+}
+
+.container-dashboard.collapsed {
+    margin-left: -8%;
+    /* Move o conteúdo para a esquerda quando o menu está recolhido */
+}
+
+.menus-lateral.collapsed {
+    width: 0;
+    margin-left: 200px;
+    /* Reduz a largura do menu para 0 quando recolhido */
+}
+
+.logo {
+    max-width: 80%;
+    transition: max-width 0.3s;
+    /* Adiciona uma transição suave ao max-width da logo */
+}
+
+.logo.collapsed {
+    max-width: 50px;
+    width: 100%;
+    margin-left: 100px;
+    /* Define o tamanho da logo quando o menu está recolhido */
+}
+
+.text-hidden {
+    visibility: hidden;
+    /* Oculta o texto dos botões quando o menu está recolhido */
+}
+
+.menus-lateral.collapsed button {
+    padding: 5px;
+    /* Ajuste o padding conforme necessário quando o menu está recolhido */
+    justify-content: center;
+    /* Alinhe o conteúdo ao centro quando recolhido */
+    gap: 0;
+    /* Remova o espaço entre o ícone e o texto quando recolhido */
+    background-color: red;
+    position: relative;
+}
+
+.menus-lateral.collapsed button span {
+    display: none;
+    /* Oculta o texto dentro dos botões quando o menu está recolhido */
+}
+
+.menus-lateral button.active {
+    border-bottom: 3px solid yellow;
+    /* Adapte conforme necessário */
+}

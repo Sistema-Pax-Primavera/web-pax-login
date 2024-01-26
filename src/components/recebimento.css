@@ -1,0 +1,115 @@
+.floating-window {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+    z-index: 1000;
+
+    /* Garante que o componente flutuante está acima do resto do conteúdo */
+}
+
+.floating-window label{
+    display: flex;
+    align-items: center;
+    color: var(--verde);
+    gap: 10px;
+    font-size: 15PX;
+    font-weight: 900;
+}
+
+.clientes-recebimento{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.clientes-recebimento input{
+    background-color: var(--cinza-leve);
+    width: 40%;
+    display: flex;
+    padding: 10px;
+    font-weight: 700;
+    align-items: start;
+}
+
+.clientes-recebimento button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 18%;
+    background-color: var(--verde);
+    color: var(--branco);
+}
+
+.pesquisar-cliente-recebimento{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pesquisar-cliente-recebimento img{
+    width: 30%;
+}
+
+.floating-window{
+    width:60%;
+    display: flex;
+    border-radius: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.window-content{
+    width: 10%;
+}
+
+.window-content button{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    padding: 2px;
+}
+
+.floating-window2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tabela-recebimento{
+    margin-top: 10px;
+}
+
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.loading p{
+    padding-top: 50px;
+    color: var(--verde);
+    font-size: 15px;
+    font-weight: 900;
+}
