@@ -22,7 +22,9 @@
     gap: 5px;
     background-color: var(--verde);
 }
-html, body {
+
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -47,7 +49,7 @@ html, body {
 
 }
 
-.toggle-password{
+.toggle-password {
     background-color: var(--branco);
     padding: 5px;
     border-top-right-radius: 5px;
@@ -55,7 +57,7 @@ html, body {
     border-bottom-right-radius: 5px;
 }
 
-.mostra-senha input{
+.mostra-senha input {
     width: 90%;
     font-size: 12px;
 }
@@ -78,12 +80,13 @@ select {
     border-radius: 5px;
     padding: 7px;
     font-weight: 800;
-    
+
 }
 
-button:hover {
-    transform: translateY(-5px); /* Move para cima 5 pixels */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+.container-login button:hover {
+    transform: translateY(-5px);
+    /* Move para cima 5 pixels */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
@@ -99,20 +102,20 @@ button:hover {
     flex-direction: column;
 }
 
-.cpf-senha2{
+.cpf-senha2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.cpf-senha label{
+.cpf-senha label {
     text-align: start;
     margin-left: 80px;
     width: 100%;
 }
 
-.cpf-senha2 label{
+.cpf-senha2 label {
     text-align: start;
     margin-left: 80px;
     width: 100%;
@@ -137,7 +140,7 @@ button:hover {
     font-size: 12px;
 }
 
-.sistema-img{
+.sistema-img {
     width: 70%;
     display: flex;
     align-items: center;
@@ -145,21 +148,20 @@ button:hover {
 }
 
 
-.sistema-img img{
+.sistema-img img {
     width: 60%;
 }
 
 
-.logo-versao{
+.logo-versao {
     margin-top: 100px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
     align-items: center;
 }
 
-.logo-versao label{
+.logo-versao label {
     font-weight: 500;
 }
-
