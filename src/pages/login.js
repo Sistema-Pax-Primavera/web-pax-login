@@ -34,8 +34,8 @@ const Login = () => {
                     localStorage.setItem("cpf", cpf);
                     localStorage.setItem("usuario", "Administrador");
                     localStorage.setItem("senha", senha);
-                    localStorage.setItem("page", '/home');
-                    navigate("/pax-primavera/home");
+                    localStorage.setItem("page", '/pax-primavera');
+                    navigate("/pax-primavera");
                 } else {
                     toast.warn("Senha incorreta!");
                 }
