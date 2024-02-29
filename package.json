@@ -1,5 +1,6 @@
 {
   "name": "@pax/pax-login",
+  "version": "1.0.0",
   "scripts": {
     "start": "webpack serve",
     "start:standalone": "webpack serve --env standalone",
@@ -43,11 +44,11 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.15.6",
-    "@mui/material": "^5.15.6",
+    "@mui/material": "^5.15.11",
     "@mui/styled-engine-sc": "^6.0.0-alpha.13",
     "apexcharts": "^3.45.2",
     "install": "^0.13.0",

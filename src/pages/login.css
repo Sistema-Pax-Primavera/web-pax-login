@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    padding: 80px;
+    padding: 5%;
     flex-direction: column;
     gap: 5px;
     background-color: var(--verde);
@@ -126,7 +126,7 @@ select {
     text-align: center;
     font-weight: 900;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 30%;
     margin-bottom: 20px;
 }
 
@@ -154,7 +154,7 @@ select {
 
 
 .logo-versao {
-    margin-top: 100px;
+    margin-top: 20%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -164,4 +164,13 @@ select {
 
 .logo-versao label {
     font-weight: 500;
+}
+
+.idioma {
+    width: 100%;
+    margin-top: 15%;
+}
+
+.idioma label {
+    font-weight: 200;
 }
