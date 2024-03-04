@@ -42,6 +42,7 @@ const Login = () => {
                         usuario: "Administrador",
                         senha,
                         idioma: idioma ? 'PY' : 'BR',
+                        token: 'token',
                     };
                     await localStorage.setItem("usuario", JSON.stringify(usuario));
                     toast.success("Bem vindo!");
