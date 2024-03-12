@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Sistema from "../../assets/sistema.png";
@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Switch from '@mui/material/Switch';
 import idiomas from "../utils/info";
 import packageJson from '../../package.json';
+import { useUsuario } from "../service/api-config";
 
 const Login = () => {
     const [cpf, setCPF] = useState('');
@@ -18,6 +19,8 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [idioma, setIdioma] = useState(false);
     const navigate = useNavigate();
+    const { getUsuario } = useUsuario();
+    const [user, setUser] = useState([]);
 
     const formatCPF = (value) => {
         const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
@@ -35,14 +38,14 @@ const Login = () => {
 
     const handleLogin = async () => {
         if (cpf || senha !== '') {
-            if (cpf === '00000000000') {
-                if (senha === 'Adm@7111') {
+            if (cpf === user.cpf) {
+                if (senha === user.senha) {
                     const usuario = {
                         cpf,
-                        usuario: "Administrador",
+                        usuario: user.usuario,
                         senha,
                         idioma: idioma ? 'PY' : 'BR',
-                        token: 'token',
+                        token: user.token,
                     };
                     await localStorage.setItem("usuario", JSON.stringify(usuario));
                     toast.success("Bem vindo!");
@@ -57,7 +60,14 @@ const Login = () => {
         } else {
             toast.error(idioma ? idiomas.es_PY.toastErro : idiomas.pt_BR.toastErro);
         }
+
     };
+
+    useEffect(() => {
+        getUsuario().then((data) => {
+            setUser(data)
+        });
+    }, []);
 
     return (
         <div className="container-login">
