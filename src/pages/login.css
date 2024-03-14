@@ -78,6 +78,7 @@ select {
     border: none;
     outline: none;
     border-radius: 5px;
+    background-color: white;
     padding: 7px;
     font-weight: 800;
 

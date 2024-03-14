@@ -11,6 +11,8 @@ import Switch from '@mui/material/Switch';
 import idiomas from "../utils/info";
 import packageJson from '../../package.json';
 import { useUsuario } from "../service/api-config";
+import IconeButtonTable from "../components/button-icon-texto";
+import Carregando from "../components/carregando";
 
 const Login = () => {
     const [cpf, setCPF] = useState('');
@@ -21,6 +23,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { getUsuario } = useUsuario();
     const [user, setUser] = useState([]);
+    const [acessando, setAcessando] = useState(false);
 
     const formatCPF = (value) => {
         const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
@@ -37,6 +40,7 @@ const Login = () => {
     };
 
     const handleLogin = async () => {
+        setAcessando(true);
         if (cpf || senha !== '') {
             if (cpf === user.cpf) {
                 if (senha === user.senha) {
@@ -49,16 +53,20 @@ const Login = () => {
                     };
                     await localStorage.setItem("usuario", JSON.stringify(usuario));
                     toast.success("Bem vindo!");
+                    setAcessando(false);
                     localStorage.setItem("page", '/pax-primavera');
                     navigate("/pax-primavera");
                 } else {
                     toast.warn(idioma ? idiomas.es_PY.toastSenha : idiomas.pt_BR.toastSenha);
+                    setAcessando(false);
                 }
             } else {
                 toast.warn(idioma ? idiomas.es_PY.toastUsuario : idiomas.pt_BR.toastUsuario);
+                setAcessando(false);
             }
         } else {
             toast.error(idioma ? idiomas.es_PY.toastErro : idiomas.pt_BR.toastErro);
+            setAcessando(false);
         }
 
     };
@@ -96,9 +104,12 @@ const Login = () => {
                     </div>
 
                 </div>
-
                 <br />
-                <button onClick={handleLogin}>ACESSAR <BiArrowFromLeft fontSize={20} /></button>
+                {acessando ?
+                    <Carregando /> :
+                    <IconeButtonTable title="ACESSAR" funcao={handleLogin} icon={<BiArrowFromLeft fontSize={20} />} />
+                }
+
                 <div className="idioma">
                     <label>{idioma ? idiomas.es_PY.idioma : idiomas.pt_BR.idioma}</label>
                     <br />

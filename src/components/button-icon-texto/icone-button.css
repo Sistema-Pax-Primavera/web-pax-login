@@ -1,0 +1,15 @@
+.icones-buttons {
+    width: 70%;
+}
+
+.icones-buttons button {
+    width: 100%;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--branco);
+    color: var(--verde);
+}
