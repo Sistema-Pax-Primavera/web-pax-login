@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Sistema from "../../assets/sistema.png";
 import Logo from "../../assets/logo-pax-branco.svg";
+import Logo2 from "../../assets/YDRAY-Sistema-Pax-Login.svg";
 import { BiArrowFromLeft } from "react-icons/bi";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,10 +20,9 @@ const Login = () => {
     const [cpfFormatado, setcpfFormatado] = useState("");
     const [senha, setSenha] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const { login } = useUsuario();
     const [idioma, setIdioma] = useState(false);
     const navigate = useNavigate();
-    const { getUsuario } = useUsuario();
-    const [user, setUser] = useState([]);
     const [acessando, setAcessando] = useState(false);
 
     const formatCPF = (value) => {
@@ -41,41 +41,38 @@ const Login = () => {
 
     const handleLogin = async () => {
         setAcessando(true);
-        if (cpf || senha !== '') {
-            if (cpf === user.cpf) {
-                if (senha === user.senha) {
-                    const usuario = {
-                        cpf,
-                        usuario: user.usuario,
-                        senha,
-                        idioma: idioma ? 'PY' : 'BR',
-                        token: user.token,
-                    };
-                    await localStorage.setItem("usuario", JSON.stringify(usuario));
-                    toast.success("Bem vindo!");
+        if (cpf && senha) {
+            try {
+                const response = await login(cpf, senha);
+                const data = response.data;
+                if (response.status === 200) {
+                    const user = {
+                        idioma: data.idioma,
+                        permissoes: data.permissoes_globais,
+                        usuario: data.usuario,
+                        token: data.token,
+                        unidades: data.unidades
+                    }
+                    // Salva as informações do usuário no localStorage
+                    localStorage.setItem('usuario', JSON.stringify(user));
                     setAcessando(false);
-                    localStorage.setItem("page", '/pax-primavera');
-                    navigate("/pax-primavera");
+                    localStorage.setItem('page', '/pax-primavera');
+                    navigate('/pax-primavera');
                 } else {
-                    toast.warn(idioma ? idiomas.es_PY.toastSenha : idiomas.pt_BR.toastSenha);
+                    // Exibe mensagem de erro conforme a resposta da API
+                    toast.error(data.error || 'Erro ao efetuar o login.');
                     setAcessando(false);
                 }
-            } else {
-                toast.warn(idioma ? idiomas.es_PY.toastUsuario : idiomas.pt_BR.toastUsuario);
+            } catch (error) {
+                toast.error(error.response.data.error);
                 setAcessando(false);
             }
         } else {
-            toast.error(idioma ? idiomas.es_PY.toastErro : idiomas.pt_BR.toastErro);
+            toast.warn(idioma ? idiomas.es_PY.toastErro : idiomas.pt_BR.toastErro);
             setAcessando(false);
         }
-
     };
 
-    useEffect(() => {
-        getUsuario().then((data) => {
-            setUser(data)
-        });
-    }, []);
 
     return (
         <div className="container-login">
