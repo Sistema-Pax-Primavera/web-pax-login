@@ -7,7 +7,7 @@ const Carregando = () => {
     return (
         <div className='carregando '>
             <Box sx={{ display: 'flex' }}>
-                <CircularProgress color="success" />
+                <CircularProgress style={{ color: 'inherit' }} />
             </Box>
             <label>Carregando</label>
         </div>
