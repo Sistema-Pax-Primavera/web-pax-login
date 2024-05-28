@@ -1,11 +1,11 @@
-.carregando {
+.carregando-login {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 10px;
 }
 
-.carregando label {
+.carregando-login label {
     font-size: 18px;
     font-weight: 800;
     color: var(--branco);

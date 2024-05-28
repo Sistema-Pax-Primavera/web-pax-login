@@ -5,7 +5,7 @@ import './carregando.css'
 
 const Carregando = () => {
     return (
-        <div className='carregando '>
+        <div className='carregando-login'>
             <Box sx={{ display: 'flex' }}>
                 <CircularProgress style={{ color: 'inherit' }} />
             </Box>
