@@ -15,7 +15,7 @@ const idiomas = {
     },
     es_PY: {
         nomeSistema: "Sistema Pax Primavera",
-        inputCpf: "RUC",
+        inputCpf: "Usuario",
         inputSenha: "Contraseña",
         idioma: "Selecciona el idioma:",
         br: "Portugués(BR)",

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Sistema from "../../assets/sistema.png";
 import Logo from "../../assets/logo-pax-branco.svg";
-import Logo2 from "../../assets/YDRAY-Sistema-Pax-Login.svg";
+import Logo2 from "../../assets/multiple_X_2.png";
 import { BiArrowFromLeft } from "react-icons/bi";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
@@ -28,10 +28,11 @@ const Login = () => {
     const formatCPF = (value) => {
         const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
         setcpfFormatado(formattedValue);
-        setCPF(value); // Salvar o valor sem formatação no estado
+        setCPF(value);
     };
 
     const SwitchIdioma = () => {
+        setCPF("");
         setIdioma(!idioma);
     };
 
@@ -59,7 +60,6 @@ const Login = () => {
                     localStorage.setItem('page', '/pax-primavera');
                     navigate('/pax-primavera');
                 } else {
-                    // Exibe mensagem de erro conforme a resposta da API
                     toast.error(data.error || 'Erro ao efetuar o login.');
                     setAcessando(false);
                 }
@@ -82,9 +82,9 @@ const Login = () => {
                     <label>{idioma ? idiomas.es_PY.inputCpf : idiomas.pt_BR.inputCpf}</label>
                     <input
                         type="text"
-                        maxLength={11}
-                        value={cpfFormatado}
-                        onChange={(e) => formatCPF(e.target.value)}
+                        maxLength={idioma ? 100 : 11}
+                        value={idioma ? cpf.toUpperCase() : cpfFormatado}
+                        onChange={(e) => idioma ? setCPF(e.target.value) : formatCPF(e.target.value)}
                     />
                 </div>
                 <div className="cpf-senha2">
@@ -124,7 +124,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="sistema-img">
-                <img src={Sistema}></img>
+                <img src={Logo2}></img>
             </div>
         </div>
     );
