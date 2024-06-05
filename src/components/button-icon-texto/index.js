@@ -1,9 +1,9 @@
 import React from "react";
 import "./icone-button.css";
 
-const IconeButtonTable = ({ icon, title, funcao }) => {
+const ButtonComponent = ({ icon, title, funcao }) => {
   return (
-    <div className="icones-buttons">
+    <div className="button-login">
       <button onClick={funcao}>
         {title}
         {icon}
@@ -12,4 +12,4 @@ const IconeButtonTable = ({ icon, title, funcao }) => {
   );
 };
 
-export default IconeButtonTable;
+export default ButtonComponent;

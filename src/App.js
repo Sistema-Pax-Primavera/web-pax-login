@@ -3,13 +3,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RoutesApp from "./routes/Routes";
 
-function Root() {
+function App() {
     return (
         <>
             <RoutesApp />
-            <ToastContainer />
+            <ToastContainer autoClose={3000} />
         </>
     );
 }
 
-export default Root;
+export default App;

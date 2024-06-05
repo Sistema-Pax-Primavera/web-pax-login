@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-import Sistema from "../../assets/sistema.png";
-import Logo from "../../assets/logo-pax-branco.svg";
-import Logo2 from "../../assets/multiple_X_2.png";
+import Logo from "../../assets/svg/logo-pax-branco.svg";
+import Logo2 from "../../assets/png/multiple_X_2.png";
 import { BiArrowFromLeft } from "react-icons/bi";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from 'react-toastify';
 import Switch from '@mui/material/Switch';
 import idiomas from "../utils/info";
 import packageJson from '../../package.json';
 import { useUsuario } from "../service/api-config";
-import IconeButtonTable from "../components/button-icon-texto";
+import ButtonComponent from "../components/button-icon-texto";
 import Carregando from "../components/carregando";
 
 const Login = () => {
@@ -78,7 +76,7 @@ const Login = () => {
         <div className="container-login">
             <div className="container-acesso">
                 <h2>{idioma ? idiomas.es_PY.nomeSistema : idiomas.pt_BR.nomeSistema}</h2>
-                <div className="cpf-senha">
+                <div className="form-login">
                     <label>{idioma ? idiomas.es_PY.inputCpf : idiomas.pt_BR.inputCpf}</label>
                     <input
                         type="text"
@@ -86,8 +84,6 @@ const Login = () => {
                         value={idioma ? cpf.toUpperCase() : cpfFormatado}
                         onChange={(e) => idioma ? setCPF(e.target.value) : formatCPF(e.target.value)}
                     />
-                </div>
-                <div className="cpf-senha2">
                     <label>{idioma ? idiomas.es_PY.inputSenha : idiomas.pt_BR.inputSenha}</label>
                     <div className="mostra-senha">
                         <input
@@ -99,14 +95,12 @@ const Login = () => {
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </div>
                     </div>
-
                 </div>
                 <br />
                 {acessando ?
                     <Carregando /> :
-                    <IconeButtonTable title="ACESSAR" funcao={handleLogin} icon={<BiArrowFromLeft fontSize={20} />} />
+                    <ButtonComponent title="ACESSAR" funcao={handleLogin} icon={<BiArrowFromLeft fontSize={20} />} />
                 }
-
                 <div className="idioma">
                     <label>{idioma ? idiomas.es_PY.idioma : idiomas.pt_BR.idioma}</label>
                     <br />
@@ -118,13 +112,18 @@ const Login = () => {
                     />
                     <label>{idioma ? idiomas.es_PY.py : idiomas.pt_BR.py}</label>
                 </div>
+                <div className="esqueceu-senha">
+                    <label>{idioma ? idiomas.es_PY.esqueceu_senha : idiomas.pt_BR.esqueceu_senha}
+                        <label className="link" onClick={null}>Clique aqui</label>
+                    </label>
+                </div>
                 <div className="logo-versao">
-                    <img src={Logo}></img>
+                    <img src={Logo} />
                     <label>{idioma ? idiomas.es_PY.versao : idiomas.pt_BR.versao} {packageJson.version}</label>
                 </div>
             </div>
             <div className="sistema-img">
-                <img src={Logo2}></img>
+                <img src={Logo2} />
             </div>
         </div>
     );
